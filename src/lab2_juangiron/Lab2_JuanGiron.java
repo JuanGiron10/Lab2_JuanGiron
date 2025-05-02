@@ -81,32 +81,32 @@ public class Lab2_JuanGiron {
                 }
             }
             if (opcion == 3) {
-                System.out.println("Ingrese un numero: ");
-                int numero = leer.nextInt();
-                if (numero < 0) {
-                    System.out.println("Ingrese un numero mayor de 0");
-                }
+                int numero;
                 int contador = 1;
                 int pares = 0;
                 int impares = 0;
-                int contador_pares = 1;
-                int contador_impares = 1;
-
+                int contador_pares = 0;
+                int contador_impares = 0;
+                double suma_numeros = 0;
                 while (contador <= 20) {
                     System.out.println("Ingrese un numero: ");
                     numero = leer.nextInt();
-
-                    if (numero % 2 == 0) {
-                        pares = pares + numero;
-                        contador_pares = contador_pares + 1;
+                    if (numero < 0) {
+                        System.out.println("Ingrese un numero mayor de 0");
                     } else {
-                        impares = impares + numero;
-                        contador_impares = contador_impares + 1;
-                    }
+                        if (numero % 2 == 0) {
+                            suma_numeros = suma_numeros + numero;
+                            pares = pares + numero;
+                            contador_pares = contador_pares + 1;
+                        } else {
+                            suma_numeros = suma_numeros + numero;
+                            impares = impares + numero;
+                            contador_impares = contador_impares + 1;
+                        }
 
-                    contador++;
+                        contador++;
+                    }
                 }
-                int suma_numeros = pares + impares;
                 double promedio = suma_numeros / 20;
                 System.out.println("Total de numeros pares: " + contador_pares);
                 System.out.println("Total de numeros impares: " + contador_impares);
