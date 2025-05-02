@@ -11,10 +11,10 @@ public class Lab2_JuanGiron {
         char resp = 's';
         while (resp == 's' || resp == 'S') {
             System.out.println("        MENU        ");
-            System.out.println("1. Piedra, pepel o tijera ");
-            System.out.println("        MENU        ");
-            System.out.println("        MENU        ");
-            System.out.println(" 4. Salida");
+            System.out.println("1. Piedra, pepel o tijera");
+            System.out.println("2. Facturacion Interactiva");
+            System.out.println("3. Sumas y Promedios");
+            System.out.println("4. Salida");
             //
             int opcion = leer.nextInt();
             if (opcion == 1) {
@@ -29,7 +29,7 @@ public class Lab2_JuanGiron {
                 if (jugador1 == 1 && jugador2 == 2) {
                     System.out.println("El jugador 2 gana");
                 } else if (jugador1 == 1 && jugador2 == 3) {
-                    System.out.println("El jugador 2 gana");
+                    System.out.println("El jugador 1 gana");
                 } else if (jugador1 == 2 && jugador2 == 1) {
                     System.out.println("El jugador 2 gana");
                 } else if (jugador1 == 2 && jugador2 == 3) {
@@ -48,33 +48,79 @@ public class Lab2_JuanGiron {
             }
             if (opcion == 2) {
                 System.out.println("Ingrese el monto de su billetera: ");
-                int billetera = leer.nextInt(); 
-             
-                while (billetera > 0){
-                    System.out.println("Desea ingresar una propina: ");
-                    int propina = leer.nextInt();
-                    double suma_billetera_propina = billetera + propina;
-                    
+                double billetera = leer.nextInt();
+
+                while (billetera > 0) {
                     System.out.println("Ingrese el valor de la factura: ");
                     int factura = leer.nextInt();
-                    
                     System.out.println("Desea dividir la factura? presione 1 si asi lo desea. ");
-                    int factura = leer.nextInt();
-                    if (factura == 1){
-                        System.out.println("escriba el numero de personas con los que divira la factura: ");
-                        int division = leer.nextInt(); 
-                        double division_factura = suma_billetera_propina/division; 
+                    int division_factura = leer.nextInt();
+                    if (division_factura == 1) {
+                        System.out.println("escriba el numero de amigos con los que divira la factura: ");
+                        int amigos = leer.nextInt();
+                        double division_personas = factura / amigos;
+                        System.out.println("Desea agregar propina?: ");
+                        int propina = leer.nextInt();
+                        double divicion_personas_propina = (factura / amigos) + propina;
+                        billetera = (billetera - ((factura / amigos) + propina));
+                        System.out.println(" Su billetera queda en: " + billetera);
+
+                    } else {
+                        System.out.println("error.Ingrese la opcion correcta ");
+                        System.out.println("Desea agregar propina? presione 1 si asi lo desea.: ");
+                        int propina = leer.nextInt();
                     }
-                    
-                    
-                    
+                    if (billetera < 0) {
+                        billetera = 0;
+                        System.out.println("Se quedo sin dinero. Tendra que lavar platos");
+                    }
+
+                    // factura / amigos 
+                    // (factura / amigos)+ propina 
+                    // billetera-((factura / amigos)+ propina)
                 }
+            }
+            if (opcion == 3) {
+                System.out.println("Ingrese un numero: ");
+                int numero = leer.nextInt();
+                if (numero < 0) {
+                    System.out.println("Ingrese un numero mayor de 0");
+                }
+                int contador = 1;
+                int pares = 0;
+                int impares = 0;
+                int contador_pares = 1;
+                int contador_impares = 1;
+
+                while (contador <= 20) {
+                    System.out.println("Ingrese un numero: ");
+                    numero = leer.nextInt();
+
+                    if (numero % 2 == 0) {
+                        pares = pares + numero;
+                        contador_pares = contador_pares + 1;
+                    } else {
+                        impares = impares + numero;
+                        contador_impares = contador_impares + 1;
+                    }
+
+                    contador++;
+                }
+                int suma_numeros = pares + impares;
+                double promedio = suma_numeros / 20;
+                System.out.println("Total de numeros pares: " + contador_pares);
+                System.out.println("Total de numeros impares: " + contador_impares);
+                System.out.println("La suma de todos los numeros es de: " + suma_numeros);
+                System.out.println("El promedio de los numeros es de: " + promedio);
+
+            }
+            if (opcion == 4) {
+                System.out.println(" Ha salido del sistema. Gracias. ");
+                resp = 'n';
             }
 
         }
 
-        System.out.println("Desea volver al sistema?: " + resp);
-        resp = leer.next().charAt(0);
     }
 
 }
