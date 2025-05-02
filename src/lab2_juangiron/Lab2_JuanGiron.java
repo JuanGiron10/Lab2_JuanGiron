@@ -14,12 +14,18 @@ public class Lab2_JuanGiron {
             System.out.println("1. Piedra, pepel o tijera ");
             System.out.println("        MENU        ");
             System.out.println("        MENU        ");
+            System.out.println(" 4. Salida");
+            //
             int opcion = leer.nextInt();
             if (opcion == 1) {
+
                 System.out.println(" Jugador 1. Elija una opcion: 1.piedra 2.papel 3.tijera ");
                 int jugador1 = leer.nextInt();
                 System.out.println(" Jugador 2. Elija una opcion: 1.piedra 2.papel 3.tijera ");
                 int jugador2 = leer.nextInt();
+                while (opcion < 1 || opcion > 3) {
+                    System.out.println(" Elija la opcion correcta");
+                }
                 if (jugador1 == 1 && jugador2 == 2) {
                     System.out.println("El jugador 2 gana");
                 } else if (jugador1 == 1 && jugador2 == 3) {
@@ -28,27 +34,47 @@ public class Lab2_JuanGiron {
                     System.out.println("El jugador 2 gana");
                 } else if (jugador1 == 2 && jugador2 == 3) {
                     System.out.println("El jugador 2 gana");
-                }else if (jugador1 == 3 && jugador2 == 1) {
+                } else if (jugador1 == 3 && jugador2 == 1) {
                     System.out.println("El jugador 2 gana");
-                }else if (jugador1 == 3 && jugador2 == 2) {
+                } else if (jugador1 == 3 && jugador2 == 2) {
                     System.out.println("El jugador 1 gana");
-                }else if (jugador1 == 1 && jugador2 == 1) {
+                } else if (jugador1 == 1 && jugador2 == 1) {
                     System.out.println("empate");
-                }else if (jugador1 == 2 && jugador2 == 2) {
+                } else if (jugador1 == 2 && jugador2 == 2) {
                     System.out.println("empate");
-                }else if (jugador1 == 3 && jugador2 == 3) {
+                } else if (jugador1 == 3 && jugador2 == 3) {
                     System.out.println("empate");
                 }
-            
             }
             if (opcion == 2) {
-                
+                System.out.println("Ingrese el monto de su billetera: ");
+                int billetera = leer.nextInt(); 
+             
+                while (billetera > 0){
+                    System.out.println("Desea ingresar una propina: ");
+                    int propina = leer.nextInt();
+                    double suma_billetera_propina = billetera + propina;
+                    
+                    System.out.println("Ingrese el valor de la factura: ");
+                    int factura = leer.nextInt();
+                    
+                    System.out.println("Desea dividir la factura? presione 1 si asi lo desea. ");
+                    int factura = leer.nextInt();
+                    if (factura == 1){
+                        System.out.println("escriba el numero de personas con los que divira la factura: ");
+                        int division = leer.nextInt(); 
+                        double division_factura = suma_billetera_propina/division; 
+                    }
+                    
+                    
+                    
+                }
             }
-            
-        System.out.println("Desea volver al sistema?: " + resp);
-        resp = leer.next().charAt(0);
+
         }
 
-    
+        System.out.println("Desea volver al sistema?: " + resp);
+        resp = leer.next().charAt(0);
     }
+
 }
